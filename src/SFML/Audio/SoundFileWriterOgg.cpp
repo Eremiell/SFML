@@ -27,7 +27,6 @@
 ////////////////////////////////////////////////////////////
 #include <SFML/Audio/SoundFileWriterOgg.hpp>
 #include <SFML/System/Err.hpp>
-#include <SFML/System/Utils.hpp>
 #include <algorithm>
 #include <cctype>
 #include <cstdlib>
@@ -39,11 +38,9 @@ namespace sf
 namespace priv
 {
 ////////////////////////////////////////////////////////////
-bool SoundFileWriterOgg::check(const std::string& filename)
+bool SoundFileWriterOgg::check(const std::filesystem::path& filename)
 {
-    const std::string extension = toLower(filename.substr(filename.find_last_of('.') + 1));
-
-    return extension == "ogg";
+    return filename.extension() == ".ogg";
 }
 
 
@@ -66,7 +63,7 @@ SoundFileWriterOgg::~SoundFileWriterOgg()
 
 
 ////////////////////////////////////////////////////////////
-bool SoundFileWriterOgg::open(const std::string& filename, unsigned int sampleRate, unsigned int channelCount)
+bool SoundFileWriterOgg::open(const std::filesystem::path& filename, unsigned int sampleRate, unsigned int channelCount)
 {
     // Save the channel count
     m_channelCount = channelCount;

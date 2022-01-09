@@ -73,7 +73,7 @@ namespace
     }
 
     // Read the contents of a file into an array of char
-    bool getFileContents(const std::string& filename, std::vector<char>& buffer)
+    bool getFileContents(const std::filesystem::path& filename, std::vector<char>& buffer)
     {
         std::ifstream file(filename.c_str(), std::ios_base::binary);
         if (file)
@@ -252,7 +252,7 @@ Shader::~Shader()
 
 
 ////////////////////////////////////////////////////////////
-bool Shader::loadFromFile(const std::string& filename, Type type)
+bool Shader::loadFromFile(const std::filesystem::path& filename, Type type)
 {
     // Read the file
     std::vector<char> shader;
@@ -273,7 +273,7 @@ bool Shader::loadFromFile(const std::string& filename, Type type)
 
 
 ////////////////////////////////////////////////////////////
-bool Shader::loadFromFile(const std::string& vertexShaderFilename, const std::string& fragmentShaderFilename)
+bool Shader::loadFromFile(const std::filesystem::path& vertexShaderFilename, const std::filesystem::path& fragmentShaderFilename)
 {
     // Read the vertex shader file
     std::vector<char> vertexShader;
@@ -297,7 +297,7 @@ bool Shader::loadFromFile(const std::string& vertexShaderFilename, const std::st
 
 
 ////////////////////////////////////////////////////////////
-bool Shader::loadFromFile(const std::string& vertexShaderFilename, const std::string& geometryShaderFilename, const std::string& fragmentShaderFilename)
+bool Shader::loadFromFile(const std::filesystem::path& vertexShaderFilename, const std::filesystem::path& geometryShaderFilename, const std::filesystem::path& fragmentShaderFilename)
 {
     // Read the vertex shader file
     std::vector<char> vertexShader;
@@ -976,21 +976,21 @@ Shader::~Shader()
 
 
 ////////////////////////////////////////////////////////////
-bool Shader::loadFromFile(const std::string& /* filename */, Type /* type */)
+bool Shader::loadFromFile(const std::filesystem::path& /* filename */, Type /* type */)
 {
     return false;
 }
 
 
 ////////////////////////////////////////////////////////////
-bool Shader::loadFromFile(const std::string& /* vertexShaderFilename */, const std::string& /* fragmentShaderFilename */)
+bool Shader::loadFromFile(const std::filesystem::path& /* vertexShaderFilename */, const std::filesystem::path& /* fragmentShaderFilename */)
 {
     return false;
 }
 
 
 ////////////////////////////////////////////////////////////
-bool Shader::loadFromFile(const std::string& /* vertexShaderFilename */, const std::string& /* geometryShaderFilename */, const std::string& /* fragmentShaderFilename */)
+bool Shader::loadFromFile(const std::filesystem::path& /* vertexShaderFilename */, const std::filesystem::path& /* geometryShaderFilename */, const std::filesystem::path& /* fragmentShaderFilename */)
 {
     return false;
 }

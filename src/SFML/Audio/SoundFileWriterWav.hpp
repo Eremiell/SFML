@@ -53,7 +53,7 @@ public:
     /// \return True if the file can be written by this writer
     ///
     ////////////////////////////////////////////////////////////
-    static bool check(const std::string& filename);
+    static bool check(const std::filesystem::path& filename);
 
 public:
 
@@ -79,7 +79,7 @@ public:
     /// \return True if the file was successfully opened
     ///
     ////////////////////////////////////////////////////////////
-    bool open(const std::string& filename, unsigned int sampleRate, unsigned int channelCount) override;
+    bool open(const std::filesystem::path& filename, unsigned int sampleRate, unsigned int channelCount) override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Write audio samples to the open file
